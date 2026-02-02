@@ -55,4 +55,19 @@ $(document).ready(() => {
             }
         }
     })
-})
+})// ===============================
+// Backend bot API connect
+// ===============================
+
+const BOT_API = "https://krishnakhajuria-ttlc.onrender.com/search?q=";
+
+async function searchFromBot(query) {
+    try {
+        const res = await fetch(BOT_API + encodeURIComponent(query));
+        const data = await res.json();
+        console.log("BOT API RESPONSE:", data);
+    } catch (err) {
+        console.error("BOT API ERROR", err);
+    }
+}
+searchFromBot("kgf");
